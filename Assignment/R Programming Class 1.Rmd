@@ -1,0 +1,126 @@
+---
+title: "MANZI SHEMA Christian"
+author: "ID101382"
+date: "2025-10-16"
+output: html_document
+---
+
+## R for data science class 1 
+### Important definitions in data science
+
+```{r }
+
+```
+
+## Data structure (Vectors, Factors, Lists, Data frame, matrix and arrays)
+### Vector: The foundational R data structure
+
+```{r}
+# Numeric
+x <- c(0.5, 0.6)
+age<-c(20,35,32,29)
+summary(age)
+```
+```{r}
+age<-c(35,24,18,24)
+mean(age)
+```
+#Logical
+```{r}
+x <- c(TRUE, FALSE)
+x <- c(T, F)
+```
+## Character
+
+```{r}
+x <- c("a", "b", "c" )
+class<-c("M","F","F","M")
+```
+## Integer
+
+```{r}
+x <- 9:29
+```
+## Matrix and operation within matrices
+
+```{r}
+x<- matrix(1:6, nrow = 2, ncol = 3)
+x
+```
+```{r}
+(y<-matrix(1:6, nrow = 3, ncol = 2))
+```
+```{r}
+x%*%y
+```
+## List
+```{r}
+x <- list(1, "a", TRUE, 1 + 4i)
+x
+```
+##Factor
+```{r}
+x <- factor(c("yes", "yes", "no", "yes", "no"))
+```
+## Create a vector with NAs in it
+
+```{r}
+x <- c(1, 2, NA, 10, 3)
+```
+## Return a logical vector indicating which elements are NA
+```{r}
+is.na(x)
+```
+```{r}
+x <- c(1, 2, 4, "NA", 5)
+bad <- is.na(x)
+print(bad)
+```
+```{r}
+x[!bad]
+```
+### What if there are multiple R objects and you want to take the subset with no missing values in any of those objects?
+```{r}
+x <- c(1, 2, NA, 4, NA, 5)
+y <- c("a", "b", NA, "d", NA, "f")
+good <- complete.cases(x, y)
+good
+```
+## Coercion
+
+If character is present, in a vector, R convert everything in the vector to character strings. 
+
+If a vector only contains logical and numbers, R will convert the logical to numbers, Every true becomes a 1, and every FALSE becomes 0
+```{r}
+sum(c(TRUE,TRUE,FALSE,FALSE,FALSE))
+```
+## Create data
+Create data Using data frame Data frame is more general than matrix How???
+Because data frame can contain different modes of data (Numeric, character and so on) Similar to what you can see in SPSS, SAS,…
+
+```{r}
+studentID<-c(1,2,3,4,5)
+math_score<-c(12,17,10,9,NA)
+gender<-c("M","F","M","M","F")
+it_score<-c(13,18,11,10,19)
+scoredata<-data.frame(studentID,gender,math_score,it_score)
+scoredata
+
+#View(scoredata)
+```
+## Create data from keyboard
+
+Steps 1. Create data frame (or matrix) with variable names 2. Invoke the text editor in the data objected created at first step
+
+```{r}
+data_class2<-data.frame(height=numeric(0),weight=numeric(0),bmi=numeric
+(0))
+data_class2<-edit(data_class2)
+```
+## Data Importation
+
+R has some features that can allow to import data from different sources ( It can be text file, spreadsheet, or database)
+* 1. Data from excel
+* 2. Data statistical packages (SAS, SPSS, Stata)
+* 3. Data from Text files (ASCII, XML, Webscraping)
+* 4. Data from database management systems (SQL,MySQL, Oracle, Access)
